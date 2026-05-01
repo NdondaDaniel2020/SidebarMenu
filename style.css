@@ -14,7 +14,7 @@
     padding: 0;
 }
 
-html {
+body {
     font-family: 'Poppins', sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.5rem;
     background-color: var(--base-clr);
@@ -23,6 +23,120 @@ html {
     grid-template-columns: auto 1fr;
 }
 
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: var(--base-clr);
+    border-right: 1px solid var(--line-clr);
+    padding: 5px 1em;
+
+    position: sticky;
+    top: 0;
+    align-self: start;
+    transition: 300ms ease-in-out;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+
+#sidebar.close {
+    padding: 5px;
+    width: 60px;
+}
+
+#sidebar ul {
+    list-style: none;
+}
+
+#sidebar > ul > li:first-child {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+    .logo {
+        font-weight: 600;
+    }
+}
+
+#sidebar > ul li.active address{
+    color: var(--accent-clr);
+
+    svg {
+        fill: var(--accent-clr);
+    }
+}
+
+#sidebar a, #sidebar .dropdown-btn, #sidebar .logo {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    color: var(--text-clr);
+    padding: .85em;
+    border-radius: 0.5em;
+    text-decoration: none;
+}
+
+.dropdown-btn {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+#sidebar svg {
+    flex-shrink: 0;
+    fill: var(--text-clr);
+}
+
+#sidebar a span, #sidebar .dropdown-btn span {
+    flex-grow: 1;
+}
+
+#sidebar a:hover, #sidebar .dropdown-btn:hover {
+    background-color: var(--hover-clr);
+}
+
+#sidebar .sub-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 300ms ease-in-out;
+}
+
+#sidebar .sub-menu.show {
+    max-height: 500px;
+}
+
+.rotate svg:last-child {
+    transition: 200ms ease-in-out;
+}
+
+.rotate svg:last-child {
+    rotate: 180deg;
+}
+
+#sidebar .sub-menu a {
+    padding-left: 2em;
+}
+
+#toggle-btn {
+    margin-left: auto;
+    padding: 1em;
+    border: none;
+    border-radius: 0.5em;
+    background: none;
+    cursor: pointer;
+
+    svg {
+        transition: rotate 150ms ease;
+    }
+}
+
+#toggle-btn:hover {
+    background-color: var(--hover-clr);
+}
+
+/* Main Content */
 main {
     padding: min(30px, 7%);
 }
