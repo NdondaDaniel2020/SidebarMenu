@@ -156,4 +156,82 @@ main p {
     h2, p { margin-top: 1em; }
 }
 
+@media(max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+    }
 
+    main {
+        padding: 2em 1em 60px 1em;
+    }
+
+    .container {
+        border: none;
+        padding: 0;
+    }
+
+    #sidebar {
+        height: 60px;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--line-clr);
+        padding: 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        top: unset;
+
+        > ul {
+            padding: 0;
+            display: grid;
+            grid-auto-columns: 60px;
+            grid-auto-flow: column;
+            align-items: center;
+            overflow: scroll;
+        }
+        
+        ul li {
+            height: 100%;
+        }
+
+        ul a, ul .dropdown-btn {
+            width: 60px;
+            height: 60px;
+            padding: 0;
+            border-radius: 0;
+            justify-content: center;
+        }
+
+        ul  li .sub-menu.show {
+            position: fixed;
+            bottom: 60px;
+            left: 0;
+            box-sizing: border-box;
+            height: 60px;
+            width: 100%;
+            background-color: var(--hover-clr);
+            border-top: 1px solid var(--line-clr);
+            display: flex;
+            justify-content: center;
+
+            > div {
+                overflow: auto;
+            }
+
+            li {
+                display: inline-flex;
+            }
+
+            a {
+                box-sizing: border-box;
+                padding: 1em;
+                width: auto;
+                justify-content: center;
+            }
+        }
+
+        ul li span, ul li:first-child, .dropdown-btn svg:last-child {
+            display: none;
+        }
+    }
+}
